@@ -1,11 +1,11 @@
 metadata {
-  path = "posthog"
+  path = "bytebase"
   name = "deploy"
 }
 
 step "terraform-init" {
-  wkdir   = "posthog/terraform"
-  target  = "posthog/terraform"
+  wkdir   = "bytebase/terraform"
+  target  = "bytebase/terraform"
   command = "terraform"
 
   args = [
@@ -13,14 +13,14 @@ step "terraform-init" {
     "-upgrade",
   ]
 
-  sha     = "h1:fjFcMnaUD5HZrSx5qsfYzcoYl2M6cN0r7sbsYZUyVmU="
+  sha     = "h1:sL4Sa+fHJIUtXlxg3JX6VbSOEnZ7NkrvlV6RhoRyfZM="
   retries = 0
   verbose = false
 }
 
 step "terraform-apply" {
-  wkdir   = "posthog/terraform"
-  target  = "posthog/terraform"
+  wkdir   = "bytebase/terraform"
+  target  = "bytebase/terraform"
   command = "terraform"
 
   args = [
@@ -28,30 +28,30 @@ step "terraform-apply" {
     "-auto-approve",
   ]
 
-  sha     = "h1:fjFcMnaUD5HZrSx5qsfYzcoYl2M6cN0r7sbsYZUyVmU="
+  sha     = "h1:sL4Sa+fHJIUtXlxg3JX6VbSOEnZ7NkrvlV6RhoRyfZM="
   retries = 2
   verbose = false
 }
 
 step "terraform-output" {
-  wkdir   = "posthog"
-  target  = "posthog/terraform"
+  wkdir   = "bytebase"
+  target  = "bytebase/terraform"
   command = "plural"
 
   args = [
     "output",
     "terraform",
-    "posthog",
+    "bytebase",
   ]
 
-  sha     = "h1:fjFcMnaUD5HZrSx5qsfYzcoYl2M6cN0r7sbsYZUyVmU="
+  sha     = "h1:sL4Sa+fHJIUtXlxg3JX6VbSOEnZ7NkrvlV6RhoRyfZM="
   retries = 0
   verbose = false
 }
 
 step "kube-init" {
-  wkdir   = "posthog"
-  target  = "posthog/.plural/NONCE"
+  wkdir   = "bytebase"
+  target  = "bytebase/.plural/NONCE"
   command = "plural"
 
   args = [
@@ -59,20 +59,20 @@ step "kube-init" {
     "kube-init",
   ]
 
-  sha     = "1e91808be34a783db6bac24ce16d306130e285005898edc77b16c03fbdd9992d"
+  sha     = "961bb10e609974197045740b1aca95059db570396403963c15502c28512e52ae"
   retries = 0
   verbose = false
 }
 
 step "crds" {
-  wkdir   = "posthog"
-  target  = "posthog/crds"
+  wkdir   = "bytebase"
+  target  = "bytebase/crds"
   command = "plural"
 
   args = [
     "wkspace",
     "crds",
-    "posthog",
+    "bytebase",
   ]
 
   sha     = "h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
@@ -81,17 +81,17 @@ step "crds" {
 }
 
 step "bounce" {
-  wkdir   = "posthog"
-  target  = "posthog/helm"
+  wkdir   = "bytebase"
+  target  = "bytebase/helm"
   command = "plural"
 
   args = [
     "wkspace",
     "helm",
-    "posthog",
+    "bytebase",
   ]
 
-  sha     = "h1:QTkvTv7dV+J+1JE8bpOfXK8nMBBcMlTOGVqR9qfJllo="
+  sha     = "h1:/QjIA/R2peNTLYxM3tJoELklCb2zHd3K+j6VifNimHo="
   retries = 2
   verbose = false
 }

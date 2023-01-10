@@ -1,0 +1,6 @@
+dependencies:
+- name: bytebase
+  repository: cm://app.plural.sh/cm/bytebase
+  version: 0.1.0
+digest: sha256:f057746bfea63fd0674636e49c685d56a281ec6f9361c8c8e766f60c0e2ec9d8
+generated: "2023-01-10T17:54:10.93603+02:00"

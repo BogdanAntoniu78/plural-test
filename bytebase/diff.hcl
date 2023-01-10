@@ -1,11 +1,11 @@
 metadata {
-  path = "posthog"
+  path = "bytebase"
   name = "diff"
 }
 
 step "terraform-init" {
-  wkdir   = "posthog/terraform"
-  target  = "posthog/terraform"
+  wkdir   = "bytebase/terraform"
+  target  = "bytebase/terraform"
   command = "terraform"
   args    = ["init"]
   sha     = ""
@@ -14,14 +14,14 @@ step "terraform-init" {
 }
 
 step "terraform" {
-  wkdir   = "posthog/terraform"
-  target  = "posthog/terraform"
+  wkdir   = "bytebase/terraform"
+  target  = "bytebase/terraform"
   command = "plural"
 
   args = [
     "wkspace",
     "terraform-diff",
-    "posthog",
+    "bytebase",
   ]
 
   sha     = ""
@@ -30,14 +30,14 @@ step "terraform" {
 }
 
 step "kube-init" {
-  wkdir   = "posthog"
-  target  = "posthog/.plural/NONCE"
+  wkdir   = "bytebase"
+  target  = "bytebase/.plural/NONCE"
   command = "plural"
 
   args = [
     "wkspace",
     "kube-init",
-    "posthog",
+    "bytebase",
   ]
 
   sha     = ""
@@ -46,14 +46,14 @@ step "kube-init" {
 }
 
 step "helm" {
-  wkdir   = "posthog/helm"
-  target  = "posthog/helm"
+  wkdir   = "bytebase/helm"
+  target  = "bytebase/helm"
   command = "plural"
 
   args = [
     "wkspace",
     "helm-diff",
-    "posthog",
+    "bytebase",
   ]
 
   sha     = ""

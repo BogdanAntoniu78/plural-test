@@ -1,6 +1,6 @@
 variable "namespace" {
   type = string
-  default = "posthog"
+  default = "bytebase"
 }
 
 variable "cluster_name" {

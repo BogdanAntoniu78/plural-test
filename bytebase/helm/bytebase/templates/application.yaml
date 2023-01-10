@@ -1,7 +1,7 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: posthog
+  name: bytebase
 spec:
   selector:
     matchLabels: {}
@@ -21,11 +21,11 @@ spec:
   - group: batch
     kind: Job
   descriptor:
-    type: posthog
+    type: bytebase
     version: 0.1.0
-    description: The all-in-one platform for building better products.
+    description: bytebase deployed on plural
     icons:
-    - src: https://plural-assets.s3.us-east-2.amazonaws.com/uploads/repos/4f7ba528-88c0-4bc8-b8f9-eabd40b57927/posthog.png?v=63838755937
+    - src: https://plural-assets.s3.us-east-2.amazonaws.com/uploads/repos/da2158e3-e679-4d23-8cf3-ded8ed5b7693/bytebase.png?v=63840572054
     
 
     {{- if .Values.global }}
