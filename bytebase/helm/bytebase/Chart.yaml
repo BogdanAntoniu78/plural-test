@@ -6,5 +6,5 @@ appVersion: 0.1.0
 dependencies:
 - name: bytebase
   version: 0.1.0
-  repository: cm://app.plural.sh/cm/bytebase
+  repository: file:///Users/bogdan/Documents/plural-artifacts/bytebase/helm/bytebase
   condition: bytebase.enabled
