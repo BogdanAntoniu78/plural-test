@@ -1,6 +1,6 @@
 dependencies:
 - name: bytebase
-  repository: cm://app.plural.sh/cm/bytebase
+  repository: file:///Users/bogdan/Documents/plural-artifacts/bytebase/helm/bytebase
   version: 0.1.0
-digest: sha256:f057746bfea63fd0674636e49c685d56a281ec6f9361c8c8e766f60c0e2ec9d8
-generated: "2023-01-10T17:54:10.93603+02:00"
+digest: sha256:e3c59c5f78d38dcee3d3198478b97f8528791dc78be1e355785a4aec4c576054
+generated: "2023-01-11T14:20:41.040184+02:00"
