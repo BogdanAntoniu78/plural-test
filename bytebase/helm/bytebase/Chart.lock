@@ -1,6 +1,0 @@
-dependencies:
-- name: bytebase
-  repository: file:///Users/bogdan/Documents/plural-artifacts/bytebase/helm/bytebase
-  version: 0.1.0
-digest: sha256:e3c59c5f78d38dcee3d3198478b97f8528791dc78be1e355785a4aec4c576054
-generated: "2023-01-11T14:40:09.781569+02:00"
