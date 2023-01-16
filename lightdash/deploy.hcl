@@ -59,7 +59,7 @@ step "kube-init" {
     "kube-init",
   ]
 
-  sha     = "3b7a308083669326bceabccea0f07b55aa71dd2fab25561fd1b099e9679d6ad1"
+  sha     = "6a2746620a08c2c35ef56bf7ecf54e313d076a873bcd2b57826df58b3207beb9"
   retries = 0
   verbose = false
 }
@@ -91,7 +91,7 @@ step "bounce" {
     "lightdash",
   ]
 
-  sha     = "h1:HLgvJ6FnuJAVkkaXoW/wpa2s/CQ24Kokk0kt+QEyZxQ="
+  sha     = "h1:yx861k2gSai4nFD/sG1ctsVoEFgKtvQdMuyHAoRlg9E="
   retries = 2
   verbose = false
 }
