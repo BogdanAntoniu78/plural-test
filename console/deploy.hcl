@@ -1,11 +1,11 @@
 metadata {
-  path = "lightdash"
+  path = "console"
   name = "deploy"
 }
 
 step "terraform-init" {
-  wkdir   = "lightdash/terraform"
-  target  = "lightdash/terraform"
+  wkdir   = "console/terraform"
+  target  = "console/terraform"
   command = "terraform"
 
   args = [
@@ -13,14 +13,14 @@ step "terraform-init" {
     "-upgrade",
   ]
 
-  sha     = "h1:3aTpf0aHmTwHD5V1t3s5mlkprtMuJGFAdZpp9IF4eAc="
+  sha     = "h1:g8ETQbD6yb8fU/35l5FT+FE5DiK9FH7xdGExDSnaim4="
   retries = 0
   verbose = false
 }
 
 step "terraform-apply" {
-  wkdir   = "lightdash/terraform"
-  target  = "lightdash/terraform"
+  wkdir   = "console/terraform"
+  target  = "console/terraform"
   command = "terraform"
 
   args = [
@@ -28,30 +28,30 @@ step "terraform-apply" {
     "-auto-approve",
   ]
 
-  sha     = "h1:3aTpf0aHmTwHD5V1t3s5mlkprtMuJGFAdZpp9IF4eAc="
+  sha     = "h1:g8ETQbD6yb8fU/35l5FT+FE5DiK9FH7xdGExDSnaim4="
   retries = 2
   verbose = false
 }
 
 step "terraform-output" {
-  wkdir   = "lightdash"
-  target  = "lightdash/terraform"
+  wkdir   = "console"
+  target  = "console/terraform"
   command = "plural"
 
   args = [
     "output",
     "terraform",
-    "lightdash",
+    "console",
   ]
 
-  sha     = "h1:3aTpf0aHmTwHD5V1t3s5mlkprtMuJGFAdZpp9IF4eAc="
+  sha     = "h1:g8ETQbD6yb8fU/35l5FT+FE5DiK9FH7xdGExDSnaim4="
   retries = 0
   verbose = false
 }
 
 step "kube-init" {
-  wkdir   = "lightdash"
-  target  = "lightdash/.plural/NONCE"
+  wkdir   = "console"
+  target  = "console/.plural/NONCE"
   command = "plural"
 
   args = [
@@ -59,20 +59,20 @@ step "kube-init" {
     "kube-init",
   ]
 
-  sha     = "eb6d72fd97947ed6198187f9fb0d580c2512165a6bc4d4b803fec8438619b04d"
+  sha     = "4dfa9301400e13a27843f946eaae20c55f2ac007fd0a7e189cc3b37a5c281ba4"
   retries = 0
   verbose = false
 }
 
 step "crds" {
-  wkdir   = "lightdash"
-  target  = "lightdash/crds"
+  wkdir   = "console"
+  target  = "console/crds"
   command = "plural"
 
   args = [
     "wkspace",
     "crds",
-    "lightdash",
+    "console",
   ]
 
   sha     = "h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
@@ -81,17 +81,17 @@ step "crds" {
 }
 
 step "bounce" {
-  wkdir   = "lightdash"
-  target  = "lightdash/helm"
+  wkdir   = "console"
+  target  = "console/helm"
   command = "plural"
 
   args = [
     "wkspace",
     "helm",
-    "lightdash",
+    "console",
   ]
 
-  sha     = "h1:QrWA2uLNTnHhzZvK/XzdFWNg6XDQTObIl5XEhrToLUE="
+  sha     = "h1:fhMBCM0oMHWpAot3Ezo/Mm6XNYelX7StpVjWUoo+e0U="
   retries = 2
   verbose = false
 }
