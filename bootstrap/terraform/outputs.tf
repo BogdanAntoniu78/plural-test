@@ -1,11 +1,17 @@
+output "cluster_private_subnets" {
+	value = module.aws-bootstrap.cluster_private_subnets
+	sensitive = true
+}
+
+
 output "cluster_worker_private_subnets" {
 	value = module.aws-bootstrap.cluster_worker_private_subnets
 	sensitive = true
 }
 
 
-output "vpc_cidr" {
-	value = module.aws-bootstrap.vpc_cidr
+output "vpc" {
+	value = module.aws-bootstrap.vpc
 	sensitive = true
 }
 
@@ -22,8 +28,8 @@ output "cluster_private_subnet_ids" {
 }
 
 
-output "vpc" {
-	value = module.aws-bootstrap.vpc
+output "worker_role_arn" {
+	value = module.aws-bootstrap.worker_role_arn
 	sensitive = true
 }
 
@@ -46,14 +52,8 @@ output "cluster_public_subnets" {
 }
 
 
-output "worker_role_arn" {
-	value = module.aws-bootstrap.worker_role_arn
-	sensitive = true
-}
-
-
-output "cluster_private_subnets" {
-	value = module.aws-bootstrap.cluster_private_subnets
+output "vpc_cidr" {
+	value = module.aws-bootstrap.vpc_cidr
 	sensitive = true
 }
 
