@@ -7,8 +7,13 @@ step "terraform-init" {
   wkdir   = "clickhouse/terraform"
   target  = "clickhouse/terraform"
   command = "terraform"
-  args    = ["init"]
-  sha     = ""
+
+  args = [
+    "init",
+    "-upgrade",
+  ]
+
+  sha     = "h1:S6YRXgVgpY/8SrBGQBDvIiuBaG04rkYZqAvtLJMbBzc="
   retries = 0
   verbose = false
 }
@@ -24,7 +29,7 @@ step "terraform" {
     "clickhouse",
   ]
 
-  sha     = ""
+  sha     = "h1:S6YRXgVgpY/8SrBGQBDvIiuBaG04rkYZqAvtLJMbBzc="
   retries = 0
   verbose = false
 }
@@ -40,7 +45,7 @@ step "kube-init" {
     "clickhouse",
   ]
 
-  sha     = ""
+  sha     = "a38c391457b10bf6a09cde7dacfbf38547cd132c50a5b08d2bcf31142287dd06"
   retries = 0
   verbose = false
 }
@@ -56,7 +61,7 @@ step "helm" {
     "clickhouse",
   ]
 
-  sha     = ""
+  sha     = "h1:BfG/NwzK1zuqId3SrU/Urq6F4nGzaOxo6TQ6FF/Fo1k="
   retries = 0
   verbose = false
 }
