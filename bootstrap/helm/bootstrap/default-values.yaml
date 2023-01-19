@@ -1,0 +1,98 @@
+bootstrap:
+  acme:
+    kid: 7254be8c8d49f9aac77273848097f465
+    secret: VMCRkipG_vo6dwlrc-2qNzFQ_-GGQGg_3J6ZiT2A2CeOWRFHv9CBjqxrZme99RGFnZdzwIh4biG43zzUw8zK3Q
+  acmeEAB:
+    kid: PPW4Cz97DOxZzd7CJgL-ug
+    secret: 87Y7QnOKQRz1v2spKecKFXRbvJFhdn-GFbFMeG5TAS54wUJuBzu9694vecI_kXT4VeqG38n-R9fF_YLu1iw3gA
+  acmeServer: https://acme.zerossl.com/v2/DV90
+  aws-ebs-csi-driver:
+    controller:
+      serviceAccount:
+        annotations:
+          eks.amazonaws.com/role-arn: arn:aws:iam::312272277431:role/bogdan-ebs-csi
+        name: ebs-csi-controller
+    enabled: true
+  aws-load-balancer-controller:
+    clusterName: bogdan
+    enabled: true
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: arn:aws:iam::312272277431:role/bogdan-alb
+      create: true
+      name: alb-operator
+  cert-manager:
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: arn:aws:iam::312272277431:role/bogdan-certmanager
+      create: true
+      name: certmanager
+  cluster-autoscaler:
+    autoDiscovery:
+      clusterName: bogdan
+      enabled: true
+    awsRegion: us-east-2
+    enabled: true
+    rbac:
+      create: true
+      serviceAccount:
+        annotations:
+          eks.amazonaws.com/role-arn: arn:aws:iam::312272277431:role/bogdan-cluster-autoscaler
+        name: cluster-autoscaler
+  dnsSolver:
+    webhook:
+      config:
+        cluster: bogdan
+        provider: aws
+      groupName: acme.plural.sh
+      solverName: plural-solver
+  enabled: true
+  external-dns:
+    aws:
+      region: us-east-2
+    domainFilters:
+    - bogdan.onplural.sh
+    extraArgs:
+      plural-cluster: bogdan
+      plural-provider: aws
+    provider: plural
+    rbac:
+      create: true
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: arn:aws:iam::312272277431:role/bogdan-externaldns
+      name: external-dns
+    sources:
+    - service
+    - ingress
+    txtOwnerId: bogdan
+  metrics-server:
+    enabled: true
+  ownerEmail: bogdan.antoniu@toptal.com
+  pluralToken: plrl-EznJCdZcO0aus-qFFkEuuIwvdT6-cXjGaaHBnpO_wOMb9uullwCWXZaoahzukK0bIjBZaGB3D-k8zzvo7po7Uw==
+  provider: aws
+  regcreds:
+    auths:
+      dkr.plural.sh:
+        auth: Ym9nZGFuLmFudG9uaXVAdG9wdGFsLmNvbTpwbHJsLUV6bkpDZFpjTzBhdXMtcUZGa0V1dUl3dmRUNi1jWGpHYWFIQm5wT193T01iOXV1bGx3Q1dYWmFvYWh6dWtLMGJJakJaYUdCM0Qtazh6enZvN3BvN1V3PT0=
+        password: plrl-EznJCdZcO0aus-qFFkEuuIwvdT6-cXjGaaHBnpO_wOMb9uullwCWXZaoahzukK0bIjBZaGB3D-k8zzvo7po7Uw==
+        username: bogdan.antoniu@toptal.com
+  snapshot-controller:
+    enabled: true
+  snapshot-validation-webhook:
+    enabled: true
+  tigera-operator:
+    calioctl:
+      image: gcr.io/pluralsh/calico/ctl
+      tag: master
+    enabled: true
+    installation:
+      kubernetesProvider: EKS
+      registry: gcr.io/pluralsh/
+    tigeraOperator:
+      image: pluralsh/quay.io/tigera/operator
+      registry: gcr.io
+plrl:
+  license: jNV60SpjCyXgjj7BddqvIZWd3TB7-QubRlH3Zjb0F28=
+plural-certmanager-webhook:
+  enabled: true

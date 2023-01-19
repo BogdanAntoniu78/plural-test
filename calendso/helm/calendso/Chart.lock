@@ -1,0 +1,6 @@
+dependencies:
+- name: calendso
+  repository: cm://app.plural.sh/cm/calendso
+  version: 0.1.24
+digest: sha256:993f1cae67cd8c81f1128265cd4519300e6b47300110cc638cd18e96ed88044f
+generated: "2023-01-19T08:49:00.373555+02:00"
