@@ -7,12 +7,7 @@ step "terraform-init" {
   wkdir   = "ingress-nginx/terraform"
   target  = "ingress-nginx/terraform"
   command = "terraform"
-
-  args = [
-    "init",
-    "-upgrade",
-  ]
-
+  args    = ["init"]
   sha     = "h1:dUs+/DNALyjPetsX1TnP8NHCoxH87xhluNBXm6eKBwQ="
   retries = 0
   verbose = false

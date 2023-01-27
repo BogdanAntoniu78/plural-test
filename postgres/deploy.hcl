@@ -59,7 +59,7 @@ step "kube-init" {
     "kube-init",
   ]
 
-  sha     = "6945a7a9a369b5e7d13eea1260c185a97e87f656a4e4502aa30ac187a589a5ec"
+  sha     = "6de9bd5c95337fee9af2a02555d3f05abecb592fbab75869faa2f788aadf8dd3"
   retries = 0
   verbose = false
 }
@@ -91,7 +91,7 @@ step "bounce" {
     "postgres",
   ]
 
-  sha     = "h1:dXwYc1M9fCtvLGj0r/85FIMKtcnSURZkke97aMAppk0="
+  sha     = "h1:ajXa+T5EW3LTVBt7+u9zlyLie02aXC7hf2OaNRM/O+I="
   retries = 2
   verbose = false
 }
